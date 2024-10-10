@@ -13,7 +13,7 @@
 else
 {
     <NuevoEditarHora Hora="@currentHora" OnCancelar="Cancelar" OnGuardar="Guardar" />
-    <TableIdNombre ListEntity="@(horas.Cast<IEntityIdNombre>().ToList())" OnEditar="Editar" OnEliminar="Eliminar" />
+    @*<TableIdNombre ListEntity="@(horas.Cast<IEntityIdNombre>().ToList())" OnEditar="Editar" OnEliminar="Eliminar" />*@
 }
 
 @code {
@@ -55,9 +55,9 @@ else
     {
         currentHora = null;
     }
-    private async Task Editar(IEntityIdNombre entity)
-    {
-        var hora = (Hora)entity;
-        currentHora = hora;
-    }
+    // private async Task Editar(IEntityIdNombre entity)
+    // {
+    //     var hora = (Hora)entity;
+    //     currentHora = hora;
+    // }
 }
