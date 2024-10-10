@@ -42,9 +42,9 @@ namespace InstitutoDesktop.Views.Horarios
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            //hora.Nombre = txtNombre.Text;
-            dateTimeDesde.Value = hora.Desde;
-            dateTimeHasta.Value = hora.Hasta;
+            
+            hora.Desde = dateTimeDesde.Value ;
+            hora.Hasta = dateTimeHasta.Value ;
             hora.EsRecreo = chkRecreo.Checked;
 
             if (hora.Id == 0)
