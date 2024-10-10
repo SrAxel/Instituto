@@ -6,7 +6,7 @@
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="institutoapp.isp20.com" android:host="oauth2redirect" />
+				<data android:scheme="appaxel.isp20.com" android:host="oauth2redirect" />
 			</intent-filter>
 		</activity>
 		
@@ -17,7 +17,7 @@
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="com.googleusercontent.apps.243005933117-9jrpnqa9f296itha7jlaa3nmh23et4vu"
+				<data android:scheme="com.googleusercontent.apps.538284422892-j92nv463iqeu9kj1qluf0a3oq2uobn5d"
 					  android:host="oauth2redirect" />
 			</intent-filter>
 		</activity>

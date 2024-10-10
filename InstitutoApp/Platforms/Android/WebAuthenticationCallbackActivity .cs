@@ -9,6 +9,6 @@ namespace InstitutoApp;
               DataScheme = CALLBACK_SCHEME)]
 public class WebAuthenticationCallbackActivity : Microsoft.Maui.Authentication.WebAuthenticatorCallbackActivity
 {
-    const string CALLBACK_SCHEME = "com.googleusercontent.apps.243005933117-9jrpnqa9f296itha7jlaa3nmh23et4vu";
+    const string CALLBACK_SCHEME =  $"com.googleusercontent.apps.538284422892-j92nv463iqeu9kj1qluf0a3oq2uobn5d";
 
 }

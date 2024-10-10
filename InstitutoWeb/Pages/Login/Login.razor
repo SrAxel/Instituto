@@ -1,6 +1,9 @@
 ﻿@page "/login"
+@using InstitutoServices.Models.Login
+@using Microsoft.Extensions.Logging
 @inject FirebaseAuthService AuthService
-
+@inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
 
 @if (!IsAuthenticated)
@@ -17,8 +20,17 @@
             <label for="clave">Contraseña</label>
             <InputText class="form-control mb-2" type="password" @bind-Value="usuario.Password" />
         </div>
+
+        <div class="form-group">
+            <label>Recordar Contraseña</label>
+            <InputCheckbox @bind-Value="remenberPassword"/>
+            
+        </div>
+
         <ValidationSummary />
         <button type="submit" class="btn btn-primary">Ingresar</button>
+        <button class="btn btn-primary" @onclick="Registrarse">Registrarse</button>
+        <button class="btn btn-primary" @onclick="LoginGoogle">Google</button>
     </EditForm>
 }
 else
@@ -30,6 +42,8 @@ else
 @code {
     Usuario usuario { get; set; } =new Usuario();
 
+    bool remenberPassword { get; set; } = false;
+
     bool IsAuthenticated { get; set; }=false;
 
     protected async override Task OnInitializedAsync()
@@ -40,10 +54,21 @@ else
 
     private async Task IniciarSesion()
     {
-        await AuthService.SignInWithEmailPassword(usuario.Email, usuario.Password);
+        FirebaseUser user = await AuthService.SignInWithEmailPassword(usuario.Email, usuario.Password, remenberPassword);
+        //logger.LogInformation($"falta la confirmacion de email: {user.EmailVerified}");
+        if(!user.EmailVerified){
+            await SweetAlert.FireAsync(new SweetAlertOptions {
+                Title = "Verificacion de Email",
+                Text = $"Debes verificar tu Email para continuar",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = false,
+                ConfirmButtonText = "Aceptar",
+         });
+        }
         IsAuthenticated = await AuthService.IsUserAuthenticated();
-        StateHasChanged();
+        StateHasChanged(); 
     }
+
 
     private async Task CerrarSesion()
     {
@@ -51,6 +76,16 @@ else
         usuario = new Usuario();
         IsAuthenticated = await AuthService.IsUserAuthenticated();
         StateHasChanged();
-     }
-        
+    }
+
+    private async Task Registrarse()
+    {
+        NavigationManager.NavigateTo("/registrarse");
+    }
+
+    private async Task LoginGoogle()
+    {
+        await AuthService.SignInWithGoogle();
+    }
+
 }

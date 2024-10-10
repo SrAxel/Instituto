@@ -32,7 +32,7 @@ public partial class IniciarSesion : ContentPage
             var authCode = authResult.Properties["code"];
 
             // Intercambiar el código por un token de acceso
-            var accessToken = await ExchangeAuthCodeForToken(authCode);
+            var idToken = await ExchangeAuthCodeForToken(authCode);
 
             // Iniciar sesión con Firebase usando el token de acceso
             //await SignInWithFirebase(accessToken);
@@ -41,7 +41,7 @@ public partial class IniciarSesion : ContentPage
             {
 
                 // Paso 2: Intercambia el access token de Google por un token de Firebase
-                var nameUser = await SignInWithGoogleAccessToken(accessToken);
+                var nameUser = await SignInWithGoogleAccessToken(idToken);
 
                 // El usuario ha sido registrado correctamente en Firebase y obtienes el ID Token de Firebase
                 Console.WriteLine($"Usuario registrado exitosamente en Firebase. Firebase Nombre usuario: {nameUser}");
@@ -83,7 +83,7 @@ public partial class IniciarSesion : ContentPage
 
     // ...
 
-    private readonly string _firebaseApiKey = "AIzaSyDLPkmzvqIWwmhKQkNapfWd-x-_0WCvudk";
+    private readonly string _firebaseApiKey = Properties.Resources.ApiKeyFirebase;
 
     // Método para registrar al usuario en Firebase usando el access token de Google
     public async Task<string> SignInWithGoogleAccessToken(string googleAccessToken)
