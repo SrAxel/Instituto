@@ -3,16 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InstitutoServices.Models.Horarios
 {
-    public class Hora : IEntityIdNombre
+    public class Hora 
     {
         public int Id { get; set; }
         [NotMapped]
-        private string nombre;
-
         public string Nombre
         {
-            get { return EsRecreo?"Recreo":""+$"{Desde.Hour}:{Desde.Minute} - {Hasta.Hour}:{Hasta.Minute}"; }
-            set { nombre = value; }
+            get { return EsRecreo?"Recreo":""+$"{Desde.Hour}:{Desde.Minute} - {Hasta.Hour}:{Hasta.Minute}";}
         }
 
         public DateTime Desde { get; set; } = DateTime.MinValue;
