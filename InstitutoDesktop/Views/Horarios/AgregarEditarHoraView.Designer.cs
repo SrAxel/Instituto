@@ -42,7 +42,7 @@
             // txtNombre
             // 
             txtNombre.Font = new Font("Segoe UI", 11F);
-            txtNombre.Location = new Point(321, 101);
+            txtNombre.Location = new Point(308, 194);
             txtNombre.Margin = new Padding(2);
             txtNombre.Name = "txtNombre";
             txtNombre.ReadOnly = true;
@@ -53,7 +53,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F);
-            label1.Location = new Point(222, 106);
+            label1.Location = new Point(222, 200);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(57, 25);
@@ -95,18 +95,67 @@
             // chkRecreo
             // 
             chkRecreo.AutoSize = true;
-            chkRecreo.Location = new Point(321, 168);
+            chkRecreo.Location = new Point(222, 247);
             chkRecreo.Name = "chkRecreo";
             chkRecreo.Size = new Size(77, 24);
             chkRecreo.TabIndex = 14;
             chkRecreo.Text = "Recreo";
             chkRecreo.UseVisualStyleBackColor = true;
+            chkRecreo.CheckedChanged += chkRecreo_CheckedChanged;
+            // 
+            // dateTimeDesde
+            // 
+            dateTimeDesde.Format = DateTimePickerFormat.Time;
+            dateTimeDesde.Location = new Point(308, 64);
+            dateTimeDesde.Margin = new Padding(2, 2, 2, 2);
+            dateTimeDesde.Name = "dateTimeDesde";
+            dateTimeDesde.ShowUpDown = true;
+            dateTimeDesde.Size = new Size(125, 27);
+            dateTimeDesde.TabIndex = 15;
+            dateTimeDesde.Leave += dateTimeDesde_Leave;
+            // 
+            // dateTimeHasta
+            // 
+            dateTimeHasta.Format = DateTimePickerFormat.Time;
+            dateTimeHasta.Location = new Point(308, 116);
+            dateTimeHasta.Margin = new Padding(2, 2, 2, 2);
+            dateTimeHasta.Name = "dateTimeHasta";
+            dateTimeHasta.ShowUpDown = true;
+            dateTimeHasta.Size = new Size(125, 27);
+            dateTimeHasta.TabIndex = 16;
+            dateTimeHasta.Leave += dateTimeHasta_Leave;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(228, 64);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 25);
+            label2.TabIndex = 17;
+            label2.Text = "Desde:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11F);
+            label3.Location = new Point(228, 116);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(63, 25);
+            label3.TabIndex = 18;
+            label3.Text = "Hasta:";
             // 
             // AgregarEditarHoraView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(762, 471);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(dateTimeHasta);
+            Controls.Add(dateTimeDesde);
             Controls.Add(chkRecreo);
             Controls.Add(txtNombre);
             Controls.Add(label1);
@@ -125,5 +174,9 @@
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private CheckBox chkRecreo;
+        private DateTimePicker dateTimeDesde;
+        private DateTimePicker dateTimeHasta;
+        private Label label2;
+        private Label label3;
     }
 }
