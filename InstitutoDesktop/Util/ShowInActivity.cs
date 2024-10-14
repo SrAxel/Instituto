@@ -14,6 +14,7 @@ namespace InstitutoDesktop.Util
         static Stopwatch watch;
         public static void Show(string message)
         {
+            //singleton
             if(showInActivityView == null)
                 showInActivityView = new ShowInActivityView();
             showInActivityView.Message = message;

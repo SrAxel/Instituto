@@ -38,9 +38,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(15, 15);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(253, 142);
+            pictureBox1.Size = new Size(316, 178);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -49,10 +50,11 @@
             // 
             lblMessage.Font = new Font("Corbel", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMessage.ForeColor = SystemColors.ButtonHighlight;
-            lblMessage.Location = new Point(271, 12);
-            lblMessage.MaximumSize = new Size(558, 0);
+            lblMessage.Location = new Point(339, 15);
+            lblMessage.Margin = new Padding(4, 0, 4, 0);
+            lblMessage.MaximumSize = new Size(698, 0);
             lblMessage.Name = "lblMessage";
-            lblMessage.Size = new Size(558, 99);
+            lblMessage.Size = new Size(698, 124);
             lblMessage.TabIndex = 1;
             lblMessage.Text = "label1";
             // 
@@ -61,22 +63,24 @@
             label2.AutoSize = true;
             label2.Font = new Font("Corbel", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(271, 111);
+            label2.Location = new Point(339, 139);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(292, 28);
+            label2.Size = new Size(360, 35);
             label2.TabIndex = 2;
             label2.Text = "espera un momento por favor";
             // 
             // ShowInActivityView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(841, 167);
+            ClientSize = new Size(1051, 209);
             Controls.Add(label2);
             Controls.Add(lblMessage);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ShowInActivityView";

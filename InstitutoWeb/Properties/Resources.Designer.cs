@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstitutoServices.Properties {
+namespace InstitutoWeb.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace InstitutoServices.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("InstitutoServices.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("InstitutoWeb.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,33 +57,6 @@ namespace InstitutoServices.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a true.
-        /// </summary>
-        internal static string Remoto {
-            get {
-                return ResourceManager.GetString("Remoto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a https://localhost:7202/api/.
-        /// </summary>
-        internal static string UrlApiLocal {
-            get {
-                return ResourceManager.GetString("UrlApiLocal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a https://datainstituto.azurewebsites.net/api/.
-        /// </summary>
-        internal static string UrlApiRemoto {
-            get {
-                return ResourceManager.GetString("UrlApiRemoto", resourceCulture);
             }
         }
     }

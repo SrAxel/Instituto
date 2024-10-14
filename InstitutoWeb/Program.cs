@@ -18,7 +18,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Logging.SetMinimumLevel(LogLevel.Debug);
-var urlApi = builder.Configuration.GetValue<string>("urlApi");
+string urlApi = builder.Configuration.GetValue<string>("UrlApiLocal");
+if (builder.Configuration.GetValue<bool>("Remoto")==true)
+     urlApi = builder.Configuration.GetValue<string>("UrlApiRemoto");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(urlApi) });
 builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
