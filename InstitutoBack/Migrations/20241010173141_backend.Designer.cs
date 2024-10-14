@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InstitutoBack.Migrations
 {
     [DbContext(typeof(InstitutoContext))]
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
     [Migration("20241010173141_backend")]
     partial class backend
+========
+    [Migration("20241013145652_inicio")]
+    partial class inicio
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -887,6 +892,35 @@ namespace InstitutoBack.Migrations
                         });
                 });
 
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
+========
+            modelBuilder.Entity("InstitutoServices.Models.Commons.JefaturaSeccion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CarreraId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarreraId");
+
+                    b.HasIndex("DocenteId");
+
+                    b.ToTable("jefaturassecciones");
+                });
+
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
             modelBuilder.Entity("InstitutoServices.Models.Commons.Materia", b =>
                 {
                     b.Property<int>("Id")
@@ -2999,7 +3033,11 @@ namespace InstitutoBack.Migrations
                             Eliminado = false,
                             Email = "admin@gmail.com",
                             Password = "",
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
                             TipoUsuario = 2,
+========
+                            TipoUsuario = 4,
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                             User = "admin"
                         });
                 });
@@ -3031,6 +3069,7 @@ namespace InstitutoBack.Migrations
                     b.HasIndex("HorarioId");
 
                     b.ToTable("detalleshorarios");
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
 
                     b.HasData(
                         new
@@ -3705,6 +3744,8 @@ namespace InstitutoBack.Migrations
                             HoraId = 33,
                             HorarioId = 27
                         });
+========
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                 });
 
             modelBuilder.Entity("InstitutoServices.Models.Horarios.Hora", b =>
@@ -3730,6 +3771,7 @@ namespace InstitutoBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("horas");
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
 
                     b.HasData(
                         new
@@ -4044,6 +4086,8 @@ namespace InstitutoBack.Migrations
                             EsRecreo = false,
                             Hasta = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
+========
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                 });
 
             modelBuilder.Entity("InstitutoServices.Models.Horarios.Horario", b =>
@@ -4073,6 +4117,7 @@ namespace InstitutoBack.Migrations
                     b.HasIndex("MateriaId");
 
                     b.ToTable("horarios");
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
 
                     b.HasData(
                         new
@@ -4291,6 +4336,8 @@ namespace InstitutoBack.Migrations
                             Eliminado = false,
                             MateriaId = 266
                         });
+========
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                 });
 
             modelBuilder.Entity("InstitutoServices.Models.Horarios.IntegranteHorario", b =>
@@ -4317,6 +4364,7 @@ namespace InstitutoBack.Migrations
                     b.HasIndex("HorarioId");
 
                     b.ToTable("integranteshorarios");
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
 
                     b.HasData(
                         new
@@ -4487,6 +4535,8 @@ namespace InstitutoBack.Migrations
                             Eliminado = false,
                             HorarioId = 26
                         });
+========
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                 });
 
             modelBuilder.Entity("InstitutoServices.Models.Inscripciones.CicloLectivo", b =>
@@ -4597,7 +4647,11 @@ namespace InstitutoBack.Migrations
                             CarreraId = 1,
                             CicloLectivoId = 1,
                             Eliminado = false,
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
                             Fecha = new DateTime(2024, 10, 10, 14, 31, 40, 79, DateTimeKind.Local).AddTicks(1621)
+========
+                            Fecha = new DateTime(2024, 10, 13, 11, 56, 51, 520, DateTimeKind.Local).AddTicks(368)
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                         });
                 });
 
@@ -10520,8 +10574,28 @@ namespace InstitutoBack.Migrations
                     b.Navigation("Carrera");
                 });
 
+<<<<<<<< HEAD:InstitutoBack/Migrations/20241010173141_backend.Designer.cs
             modelBuilder.Entity("InstitutoServices.Models.Commons.Materia", b =>
                 {
+========
+            modelBuilder.Entity("InstitutoServices.Models.Commons.JefaturaSeccion", b =>
+                {
+                    b.HasOne("InstitutoServices.Models.Commons.Carrera", "Carrera")
+                        .WithMany()
+                        .HasForeignKey("CarreraId");
+
+                    b.HasOne("InstitutoServices.Models.Commons.Docente", "Docente")
+                        .WithMany()
+                        .HasForeignKey("DocenteId");
+
+                    b.Navigation("Carrera");
+
+                    b.Navigation("Docente");
+                });
+
+            modelBuilder.Entity("InstitutoServices.Models.Commons.Materia", b =>
+                {
+>>>>>>>> master:InstitutoBack/Migrations/20241013145652_inicio.Designer.cs
                     b.HasOne("InstitutoServices.Models.Commons.AnioCarrera", "AnioCarrera")
                         .WithMany()
                         .HasForeignKey("AnioCarreraId")

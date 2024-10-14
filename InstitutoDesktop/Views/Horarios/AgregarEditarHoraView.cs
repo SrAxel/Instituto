@@ -35,13 +35,16 @@ namespace InstitutoDesktop.Views.Horarios
         private async void CargarDatosEnPantalla()
         {
             txtNombre.Text = hora.Nombre;
-            dateTimeDesde.Value = hora.Desde;
-            dateTimeHasta.Value = hora.Hasta;
+            //definimos el valor de la fecha como actual y la hora y minutos como los de la hora
+            dateTimeDesde.Value = new DateTime(1800, 1, 1, hora.Desde.Hour, hora.Desde.Minute, 0);
+            dateTimeHasta.Value = new DateTime(1800, 1, 1, hora.Hasta.Hour, hora.Hasta.Minute, 0);
             chkRecreo.Checked = hora.EsRecreo;
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            hora.Nombre = txtNombre.Text;
+            hora.EsRecreo = chkRecreo.Checked;
 
             LeerValoresDePantalla();
 
@@ -58,32 +61,9 @@ namespace InstitutoDesktop.Views.Horarios
             this.Close();
         }
 
-        private void LeerValoresDePantalla()
-        {
-            hora.Desde = dateTimeDesde.Value;
-            hora.Hasta = dateTimeHasta.Value;
-            hora.EsRecreo = chkRecreo.Checked;
-            txtNombre.Text = hora.Nombre.ToString();
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void chkRecreo_CheckedChanged(object sender, EventArgs e)
-        {
-            LeerValoresDePantalla();
-        }
-
-        private void dateTimeDesde_ValueChanged(object sender, EventArgs e)
-        {
-            LeerValoresDePantalla();
-        }
-
-        private void dateTimeHasta_ValueChanged(object sender, EventArgs e)
-        {
-            LeerValoresDePantalla();
         }
     }
 }

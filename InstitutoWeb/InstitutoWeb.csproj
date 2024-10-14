@@ -39,6 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Components\Commons\ListCardEnum.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="Components\Horarios\TableHoras.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
     <Content Update="Pages\Horas\Horas.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
@@ -55,6 +61,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InstitutoServices\InstitutoServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>

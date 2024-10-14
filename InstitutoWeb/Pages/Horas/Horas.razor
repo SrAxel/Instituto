@@ -13,7 +13,7 @@
 else
 {
     <NuevoEditarHora Hora="@currentHora" OnCancelar="Cancelar" OnGuardar="Guardar" />
-    @*<TableIdNombre ListEntity="@(horas.Cast<IEntityIdNombre>().ToList())" OnEditar="Editar" OnEliminar="Eliminar" />*@
+     <TableHoras ListHoras="horas" OnEditar="Editar" OnEliminar="Eliminar" /> 
 }
 
 @code {
@@ -25,9 +25,8 @@ else
         horas = await horaService.GetAllAsync();
     }
 
-    private async void Eliminar(IEntityIdNombre entity)
+    private async void Eliminar(Hora hora)
     {
-        var hora = (Hora)entity;
         SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
             {
                 Title = "Borrando Hora",
@@ -55,9 +54,9 @@ else
     {
         currentHora = null;
     }
-    // private async Task Editar(IEntityIdNombre entity)
-    // {
-    //     var hora = (Hora)entity;
-    //     currentHora = hora;
-    // }
+    private async Task Editar(IEntityIdNombre entity)
+    {
+        var hora = (Hora)entity;
+        currentHora = hora;
+    }
 }
