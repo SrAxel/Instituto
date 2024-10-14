@@ -1,4 +1,4 @@
-﻿@page "/registrarse"
+﻿﻿@page "/registrarse"
 @inject FirebaseAuthService AuthService
 @inject NavigationManager NavigationManager
 @inject ILogger<Registrarse> logger
@@ -28,12 +28,11 @@
 @code {
     Usuario usuario { get; set; } =new Usuario();
 
-    bool IsAuthenticated { get; set; }=false;
-
     private async Task Registro()
     {
+        var userId=await AuthService.createUserWithEmailAndPassword(usuario.Email, usuario.Password, usuario.User);
+        logger.LogInformation(userId);
         NavigationManager.NavigateTo("/login");
-
     }
         
 }
