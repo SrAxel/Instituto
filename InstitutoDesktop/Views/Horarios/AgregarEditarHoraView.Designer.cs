@@ -101,6 +101,7 @@
             chkRecreo.TabIndex = 14;
             chkRecreo.Text = "Recreo";
             chkRecreo.UseVisualStyleBackColor = true;
+            chkRecreo.CheckedChanged += chkRecreo_CheckedChanged;
             // 
             // dateTimeDesde
             // 
@@ -109,6 +110,7 @@
             dateTimeDesde.Name = "dateTimeDesde";
             dateTimeDesde.Size = new Size(250, 27);
             dateTimeDesde.TabIndex = 15;
+            dateTimeDesde.ValueChanged += dateTimeDesde_ValueChanged;
             // 
             // dateTimeHasta
             // 
@@ -117,6 +119,7 @@
             dateTimeHasta.Name = "dateTimeHasta";
             dateTimeHasta.Size = new Size(250, 27);
             dateTimeHasta.TabIndex = 16;
+            dateTimeHasta.ValueChanged += dateTimeHasta_ValueChanged;
             // 
             // label2
             // 

@@ -42,10 +42,8 @@ namespace InstitutoDesktop.Views.Horarios
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            hora.Desde = dateTimeDesde.Value ;
-            hora.Hasta = dateTimeHasta.Value ;
-            hora.EsRecreo = chkRecreo.Checked;
+
+            LeerValoresDePantalla();
 
             if (hora.Id == 0)
             {
@@ -56,13 +54,36 @@ namespace InstitutoDesktop.Views.Horarios
             {
                 await horarioService.UpdateAsync(hora);
             }
-           
+
             this.Close();
+        }
+
+        private void LeerValoresDePantalla()
+        {
+            hora.Desde = dateTimeDesde.Value;
+            hora.Hasta = dateTimeHasta.Value;
+            hora.EsRecreo = chkRecreo.Checked;
+            txtNombre.Text = hora.Nombre.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void chkRecreo_CheckedChanged(object sender, EventArgs e)
+        {
+            LeerValoresDePantalla();
+        }
+
+        private void dateTimeDesde_ValueChanged(object sender, EventArgs e)
+        {
+            LeerValoresDePantalla();
+        }
+
+        private void dateTimeHasta_ValueChanged(object sender, EventArgs e)
+        {
+            LeerValoresDePantalla();
         }
     }
 }
